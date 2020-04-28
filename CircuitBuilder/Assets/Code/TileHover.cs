@@ -8,7 +8,7 @@ public class TileHover : MonoBehaviour
 {
     //public Sprite BuildTile;
     public Sprite HoverTile;
-    public GameObject movePrefab;
+    public GameObject moveTile;
 
     bool hovering;
     float screenRatio;
@@ -32,7 +32,7 @@ public class TileHover : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                Instantiate(movePrefab);
+                movePrefab moveitmoveit = Instantiate(moveTile);
             }
         }
     }
