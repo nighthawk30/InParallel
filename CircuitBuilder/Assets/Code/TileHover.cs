@@ -28,7 +28,7 @@ public class TileHover : MonoBehaviour
     {
         cursorDistance.x = Mathf.Abs((Input.mousePosition.x - Screen.width / 2) * screenRatio - transform.position.x);
         cursorDistance.y = Mathf.Abs((Input.mousePosition.y - Screen.height / 2) * screenRatio - transform.position.y);
-        if (cursorDistance.x < 32 && cursorDistance.y < 32)//32 bc the object is scaled by 2
+        if (cursorDistance.x < 16 && cursorDistance.y < 16)//32 bc the object is scaled by 2
         {
             return true;
         }
