@@ -10,7 +10,6 @@ public class TileHover : MonoBehaviour
     bool hovering;
     float screenRatio;
 
-    Vector2 mouseGamePostion = new Vector2(0, 0);
     Vector2 cursorDistance = new Vector2(0, 0);
 
     private SpriteRenderer spriteRenderer;
@@ -25,23 +24,20 @@ public class TileHover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mouseGamePostion.x = (Input.mousePosition.x - Screen.width / 2) * screenRatio;
-        mouseGamePostion.y = (Input.mousePosition.y - Screen.height / 2) * screenRatio;
+        Debug.Log(HoverTest());
+    }
 
-        cursorDistance.x = Mathf.Abs(mouseGamePostion.x - transform.position.x);
-        cursorDistance.y = Mathf.Abs(mouseGamePostion.y - transform.position.y);
-
-        if (!hovering && cursorDistance.x < 32 && cursorDistance.y < 32)//32 bc the object is scaled by 2
+    bool HoverTest()
+    {
+        cursorDistance.x = Mathf.Abs((Input.mousePosition.x - Screen.width / 2) * screenRatio - transform.position.x);
+        cursorDistance.y = Mathf.Abs((Input.mousePosition.y - Screen.height / 2) * screenRatio - transform.position.y);
+        if (cursorDistance.x < 32 && cursorDistance.y < 32)//32 bc the object is scaled by 2
         {
-            spriteRenderer.sprite = HoverTile;
-            hovering = true;
+            return true;
         }
-        
-        if (hovering && (cursorDistance.x > 32 || cursorDistance.y > 32))
+        else
         {
-            spriteRenderer.sprite = BuildTile;
-            hovering = false;
+            return false;
         }
-               
     }
 }
