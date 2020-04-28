@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47120c35d7960f840bec1f2e71206236, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveTile: {fileID: 6557283387704709656, guid: bd625466f2d706d4788f04b059dc1117,
+  dragTile: {fileID: 6557283387704709656, guid: bd625466f2d706d4788f04b059dc1117,
     type: 3}
 --- !u!114 &-6632278889477088184
 MonoBehaviour:

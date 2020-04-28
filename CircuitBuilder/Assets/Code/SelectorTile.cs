@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class SelectorTile : MonoBehaviour
 {
-    public MoveTile moveTile;
+    public DragTile dragTile;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +23,7 @@ public class SelectorTile : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && GetComponent<TileHover>().HoverTest())
         {
-            MoveTile vroom = Instantiate(moveTile);
+            DragTile vroom = Instantiate(dragTile);
             vroom.transform.SetParent(transform.parent.transform.parent, false);
         }
     }
