@@ -12,15 +12,15 @@ public class UITile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<Button>().onClick.AddListener(OnPointerDown);//add the on click listener to this button
+        //GetComponent<Button>().OnPointerDown.AddListener(TaskOnClick);//add the on click listener to this button
     }
-    /*
+
     void TaskOnClick()
     {
         Debug.Log("click");
     }
-    */
-
+    
+    /*
     void OnPointerDown()
     {
         Debug.Log("click");
@@ -30,6 +30,7 @@ public class UITile : MonoBehaviour
     {
         Debug.Log("release");
     }
+    */
     // Update is called once per frame
     void Update()
     {

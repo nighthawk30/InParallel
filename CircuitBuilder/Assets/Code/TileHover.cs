@@ -2,29 +2,39 @@
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TileHover : MonoBehaviour
 {
-    public Sprite BuildTile;
+    //public Sprite BuildTile;
     public Sprite HoverTile;
+    public GameObject movePrefab;
+
     bool hovering;
     float screenRatio;
 
     Vector2 cursorDistance = new Vector2(0, 0);
 
-    private SpriteRenderer spriteRenderer;
+    //private SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
     void Start()
     {
         screenRatio = 160 / ((float)(Screen.height));
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        //spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(HoverTest());
+        hovering = HoverTest();
+        if (hovering)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                Instantiate(movePrefab);
+            }
+        }
     }
 
     bool HoverTest()
