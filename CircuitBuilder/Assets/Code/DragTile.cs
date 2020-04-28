@@ -18,6 +18,7 @@ public class DragTile : MonoBehaviour
         cursorLocation.x = (Input.mousePosition.x - Screen.width / 2) * screenRatio;
         cursorLocation.y = (Input.mousePosition.y - Screen.height / 2) * screenRatio;
         transform.position = cursorLocation;
+
         if (Input.GetMouseButtonUp(0))
         {
             Destroy(gameObject);
