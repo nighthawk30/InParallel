@@ -12,7 +12,7 @@ public class UITile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //GetComponent<Button>().onClick.AddListener(TaskOnClick);//add the on click listener to this button
+        GetComponent<Button>().onClick.AddListener(OnPointerDown);//add the on click listener to this button
     }
     /*
     void TaskOnClick()
@@ -21,7 +21,7 @@ public class UITile : MonoBehaviour
     }
     */
 
-    void OnPointerClick()
+    void OnPointerDown()
     {
         Debug.Log("click");
     }

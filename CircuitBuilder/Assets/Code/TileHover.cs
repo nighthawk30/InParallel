@@ -17,7 +17,7 @@ public class TileHover : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        screenRatio = 288 / ((float)(Screen.height));
+        screenRatio = 160 / ((float)(Screen.height));
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
