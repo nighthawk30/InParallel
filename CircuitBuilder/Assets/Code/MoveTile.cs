@@ -17,7 +17,6 @@ public class MoveTile : MonoBehaviour
     {
         cursorLocation.x = (Input.mousePosition.x - Screen.width / 2) * screenRatio;
         cursorLocation.y = (Input.mousePosition.y - Screen.height / 2) * screenRatio;
-        Debug.Log(cursorLocation.x);
         transform.position = cursorLocation;
     }
 }
