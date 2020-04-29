@@ -9,7 +9,7 @@ public class GridTile : MonoBehaviour
     public Sprite HoverTile;
     public GameObject controller;
     GameObject newTile;//the tile object that this object becomes
-    public DragTile dragTile;//this is purely for switch capabilities - inventory
+    GameObject newDrag;//this is purely for switch capabilities - inventory
     bool place;//has something been placed on this tile
     bool hover;
 
@@ -46,6 +46,7 @@ public class GridTile : MonoBehaviour
         if (hover && Input.GetMouseButtonUp(0) && controller.GetComponent<Controller>().currentSelection != null)//if you drop an icon on this tile
         {
             newTile = controller.GetComponent<Controller>().currentSelection;
+            newDrag = newTile.GetComponent<SelectorIcon>().dragTile.gameObject;//sets the drag tile that this creates when clicked to that of the appropriate selector tile
             GetComponent<Image>().sprite = newTile.GetComponent<Image>().sprite;//switch this sprite to that of the one that was dropped
             //in the future, also change properties or name of the tile
             //we also want to be able to pick up this tile and move it
@@ -57,11 +58,13 @@ public class GridTile : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && hover)
         {
-            DragTile vroom = Instantiate(dragTile, transform.position, transform.rotation, transform.parent.transform.parent);//Instantiate(Object original, Vector3 position, Quaternion rotation, Transform parent);
+            //Instantiate(Object original, Vector3 position, Quaternion rotation, Transform parent);
+            GameObject vroom = Instantiate(newDrag, transform.position, transform.rotation, transform.parent.transform.parent);//create a drag tile from the drag reference from the selector tile;
             vroom.GetComponent<DragTile>().controller = controller;//give the tile a reference to the controller
             controller.GetComponent<Controller>().currentSelection = newTile;//set the object that the controller creates - rn just copies sprite
             place = false;//the tile is no longer on the grid square, so it is free to move
             newTile = null;//just to be consistent
+            newDrag = null;
         }
     }
 }

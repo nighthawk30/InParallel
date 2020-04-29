@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5814338009417324349
+--- !u!1 &5025534747807024976
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,25 +8,24 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5814338009417324348}
-  - component: {fileID: 5814338009417324337}
-  - component: {fileID: 5814338009417324350}
-  - component: {fileID: 5549103378748759624}
-  - component: {fileID: -6632278889477088184}
+  - component: {fileID: 292474053556995394}
+  - component: {fileID: 1407638114692545358}
+  - component: {fileID: 4207456917953516381}
+  - component: {fileID: 5816454962851237907}
   m_Layer: 5
-  m_Name: SelectorTile
+  m_Name: BatteryDrag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &5814338009417324348
+--- !u!224 &292474053556995394
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5814338009417324349}
+  m_GameObject: {fileID: 5025534747807024976}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -34,26 +33,26 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 96, y: 96}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &5814338009417324337
+--- !u!222 &1407638114692545358
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5814338009417324349}
+  m_GameObject: {fileID: 5025534747807024976}
   m_CullTransparentMesh: 0
---- !u!114 &5814338009417324350
+--- !u!114 &4207456917953516381
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5814338009417324349}
+  m_GameObject: {fileID: 5025534747807024976}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -73,32 +72,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
-  m_UseSpriteMesh: 1
+  m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5549103378748759624
+--- !u!114 &5816454962851237907
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5814338009417324349}
+  m_GameObject: {fileID: 5025534747807024976}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47120c35d7960f840bec1f2e71206236, type: 3}
+  m_Script: {fileID: 11500000, guid: 31d24d8c294b20148a8298a4f01715f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dragTile: {fileID: 6557283387704709656, guid: bd625466f2d706d4788f04b059dc1117,
-    type: 3}
   controller: {fileID: 0}
---- !u!114 &-6632278889477088184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5814338009417324349}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88d3c69f38ec59644a2af17c76a0d0bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

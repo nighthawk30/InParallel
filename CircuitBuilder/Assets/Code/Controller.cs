@@ -1,15 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Controller : MonoBehaviour
 {
-    [SerializeField] SelectorTile sTile;//to create selector icons but might need 1 for each depending on how its done, hopefully can just change sprite and name
+    //to create selector icons but might need 1 for each depending on how its done, hopefully can just change sprite and name
+    public GameObject batteryIcon;
+    public GameObject lightIcon;
     [SerializeField] GridTile gTile;//to create grid tiles
     
     public GameObject currentSelection = null;//what the user is selecting
     GridTile grid;
-    SelectorTile square;
 
     //The idea is that if the controller places in all the tiles, it can monitor which ones are being selected and tell the grid which are being placed
     //This will also be useful for circuit testing
@@ -26,8 +28,10 @@ public class Controller : MonoBehaviour
         }
 
         //add selector tiles to toolbar - probably individually, they will just be children of the main one I think - diff sprite and name
-        square = Instantiate(sTile, transform.parent.GetChild(2));//slot it into the third child of the canvas, the tool panel, dont adjust scale
-        square.gameObject.GetComponent<SelectorTile>().controller = this.gameObject;//tell the selector that this is the controller
+        GameObject battery = Instantiate(batteryIcon, transform.parent.GetChild(2));//slot it into the third child of the canvas, the tool panel, dont adjust scale
+        battery.gameObject.GetComponent<SelectorIcon>().controller = this.gameObject;//tell the selector that this is the controller
+        GameObject light = Instantiate(lightIcon, transform.parent.GetChild(2));//slot it into the third child of the canvas, the tool panel, dont adjust scale
+        light.gameObject.GetComponent<SelectorIcon>().controller = this.gameObject;
     }
 
     // Update is called once per frame

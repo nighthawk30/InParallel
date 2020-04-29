@@ -12,7 +12,7 @@ public class TileHover : MonoBehaviour
     {
         cursorDistance.x = Mathf.Abs((Input.mousePosition.x - Screen.width / 2) * screenRatio - transform.position.x);
         cursorDistance.y = Mathf.Abs((Input.mousePosition.y - Screen.height / 2) * screenRatio - transform.position.y);
-        if (cursorDistance.x < 16 && cursorDistance.y < 16)//scale edge based on screen size?
+        if (cursorDistance.x < 15 && cursorDistance.y < 15)//scale edge based on screen size?
         {
             return true;
         }

@@ -146,8 +146,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 135525410}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -280.12503}
-  m_LocalScale: {x: 3.1125002, y: 3.1125002, z: 3.1125002}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 836419344}
   m_RootOrder: 0
@@ -164,7 +164,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef2ed697c027d4f409d93b103cfecc89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sTile: {fileID: 5549103378748759624, guid: ab6407ee767d31e439b6af48d4c12b54, type: 3}
+  batteryIcon: {fileID: 2893823418603648581, guid: 50a1b9e6e30c5384d845237a6fe2211d,
+    type: 3}
+  lightIcon: {fileID: 8307590232343644355, guid: 60222ca4b9df1f14d8cfb3e21211aad1,
+    type: 3}
   gTile: {fileID: -3341032338638214819, guid: e1c2a8ca157c8564b8dc81e0dd43d7e3, type: 3}
   currentSelection: {fileID: 0}
 --- !u!1 &378323702
@@ -225,8 +228,8 @@ MonoBehaviour:
   m_StartAxis: 0
   m_CellSize: {x: 96, y: 96}
   m_Spacing: {x: 10, y: 10}
-  m_Constraint: 0
-  m_ConstraintCount: 5
+  m_Constraint: 1
+  m_ConstraintCount: 1
 --- !u!1 &836419340
 GameObject:
   m_ObjectHideFlags: 0

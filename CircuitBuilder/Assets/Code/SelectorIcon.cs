@@ -4,9 +4,9 @@ using System.Collections.Specialized;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SelectorTile : MonoBehaviour
+public class SelectorIcon : MonoBehaviour
 {
-    public DragTile dragTile;
+    public GameObject dragTile;//a reference to the specific drag tile that this selector uses
     public GameObject controller;
 
     // Start is called before the first frame update
@@ -25,7 +25,7 @@ public class SelectorTile : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && GetComponent<TileHover>().HoverTest())
         {
-            DragTile vroom = Instantiate(dragTile, transform.position, transform.rotation, transform.parent.transform.parent);//Instantiate(Object original, Vector3 position, Quaternion rotation, Transform parent);
+            GameObject vroom = Instantiate(dragTile, transform.position, transform.rotation, transform.parent.transform.parent);//Instantiate(Object original, Vector3 position, Quaternion rotation, Transform parent);
             vroom.GetComponent<DragTile>().controller = controller;//give the tile a reference to the controller
             controller.GetComponent<Controller>().currentSelection = this.gameObject;//set the object that the controller creates - rn just copies sprite
         }
