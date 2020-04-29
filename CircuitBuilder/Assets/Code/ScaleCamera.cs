@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //https://gamedev.stackexchange.com/questions/167317/scale-camera-to-fit-screen-size-unity
+//not functional
 public class ScaleCamera : MonoBehaviour
 {
     public float sceneWidth = 30;
