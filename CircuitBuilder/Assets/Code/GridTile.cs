@@ -35,7 +35,7 @@ public class GridTile : MonoBehaviour
                 GetComponent<Image>().sprite = BuildTile;
             }
         }
-        else
+        else //turns it into a modified selector tile to work as an inventory slot
         {
             GridSelect();//let the tile be moved
         }
