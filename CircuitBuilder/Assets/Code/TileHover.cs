@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class TileHover : MonoBehaviour
 {
+    float tileScale;
+
     public bool HoverTest()
     {
-        if (Mathf.Abs(Input.mousePosition.x - transform.position.x) < 32 && Mathf.Abs(Input.mousePosition.y - transform.position.y) < 32)//scale edge based on screen size?
+        tileScale = 32 * Screen.width / 947;//scale edge detection with screen width - made for a 947 screen width
+        if (Mathf.Abs(Input.mousePosition.x - transform.position.x) < tileScale && Mathf.Abs(Input.mousePosition.y - transform.position.y) < tileScale)//scale edge based on screen size?
         {
             return true;
         }
