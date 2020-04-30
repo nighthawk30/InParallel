@@ -5,21 +5,20 @@ using UnityEngine;
 public class DragTile : MonoBehaviour//only serves to show the user where the tile is, otherwise redundant
 {
     Vector3 cursorLocation = new Vector3(0, 0, 0);
-    float screenRatio;
     public GameObject controller;
 
     // Start is called before the first frame update
     void Start()
     {
-        screenRatio = 160 / ((float)(Screen.height));
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        //modified version of hovertile class to tp the tile to the mouse
-        cursorLocation.x = (Input.mousePosition.x - Screen.width / 2) * screenRatio;
-        cursorLocation.y = (Input.mousePosition.y - Screen.height / 2) * screenRatio;
+        //tp tile to mouse
+        cursorLocation.x = Input.mousePosition.x;
+        cursorLocation.y = Input.mousePosition.y;
         transform.position = cursorLocation;
 
         if (Input.GetMouseButtonUp(0))
