@@ -25,9 +25,9 @@ public class SelectorIcon : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && GetComponent<TileHover>().HoverTest())
         {
-            GameObject vroom = Instantiate(dragTile, transform.position, transform.rotation, transform.parent.transform.parent);//Instantiate(Object original, Vector3 position, Quaternion rotation, Transform parent);
-            //vroom.transform.localScale = new Vector3(1, 1, 1);
-            //vroom.GetComponent<RectTransform>().sizeDelta = vroom.transform.parent.GetComponent<GridLayoutGroup>().cellSize;
+            //Instantiate(Object original, Vector3 position, Quaternion rotation, Transform parent);
+            GameObject vroom = Instantiate(dragTile, transform.position, transform.rotation, transform.parent.transform.parent);//parent must be out of the layout so it can be freely dragged by mouse
+            vroom.GetComponent<RectTransform>().sizeDelta = transform.parent.GetComponent<GridLayoutGroup>().cellSize;//dynamically set size of dragtile to fit that of the cell
             vroom.GetComponent<DragTile>().controller = controller;//give the tile a reference to the controller
             controller.GetComponent<Controller>().currentSelection = this.gameObject;//set the object that the controller creates - rn just copies sprite
         }
