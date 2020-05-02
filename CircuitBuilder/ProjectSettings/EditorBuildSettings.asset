@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/PlatformerL1.unity
     guid: a1e18cdb027127844b407e66de9760d5
   - enabled: 1
