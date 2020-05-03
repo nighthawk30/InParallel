@@ -39,7 +39,7 @@ public class Tile : MonoBehaviour
             {
                 //make a wire and set that wire in the controller and set this object as the first
             }
-            else//there already is a wire
+            else//there already is a wire ADD AN IF THE WIRE THAT IS THERE IS THIS ONE, in that case, kill the wire
             {
                 //controller.GetComponent<Controller>().wireConnection
                 //set this as the wire second, set the wire as one of the wires and remove the wire from the controller

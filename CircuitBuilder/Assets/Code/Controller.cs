@@ -20,6 +20,7 @@ public class Controller : MonoBehaviour
     /*
      * the only way to break a wire is to delete the wire or one of the connector objects
      * wire moves with objects it is bound to
+     * when created first, the wire has start 
      * turn off wireToggle by clicking the toggle or another selector
      */
 
