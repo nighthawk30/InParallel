@@ -8,7 +8,6 @@ public class GridSlot : MonoBehaviour
     public Sprite BuildTile;
     public Sprite HoverTile;
     public GameObject controller;
-    public int buildnum;
     GameObject newTile;//the tile object that this object becomes
     bool place;//has something been placed on this tile
     bool hover;//is the tile being hovered over
@@ -26,7 +25,6 @@ public class GridSlot : MonoBehaviour
                 {
                     TilePlace();
                     GetComponent<Image>().sprite = BuildTile;//switch back to basic tile as background
-
                 }
             }
             else
@@ -36,7 +34,7 @@ public class GridSlot : MonoBehaviour
         }
         else //turns it into a modified selector tile to work as an inventory slot
         {
-            if (hover && Input.GetMouseButtonDown(0))
+            if (hover && Input.GetMouseButtonDown(0) && !controller.GetComponent<Controller>().wireToggle)//checks that you arent trying to place a wire instead of move it
             {
                 TileRemove();//let the tile be moved
             }

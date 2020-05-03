@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1407638114692545358}
   - component: {fileID: 4207456917953516381}
   - component: {fileID: 1423172983472566746}
+  - component: {fileID: 5380292008269831816}
   m_Layer: 5
   m_Name: BatteryTile
   m_TagString: Untagged
@@ -89,3 +90,15 @@ MonoBehaviour:
   state: 1
   controller: {fileID: 0}
   gridTile: {fileID: 0}
+--- !u!114 &5380292008269831816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5025534747807024976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88d3c69f38ec59644a2af17c76a0d0bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

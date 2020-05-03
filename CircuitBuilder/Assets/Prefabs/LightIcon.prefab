@@ -99,5 +99,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47120c35d7960f840bec1f2e71206236, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dragTile: {fileID: 231753322896189179, guid: 53384c3a3eeaf0949a78e7d72834845a, type: 3}
+  tile: {fileID: 231753322896189179, guid: 53384c3a3eeaf0949a78e7d72834845a, type: 3}
   controller: {fileID: 0}
