@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4793519727334745321}
   - component: {fileID: 6125454290369207013}
   - component: {fileID: 9001271336679830262}
-  - component: {fileID: 1599096354961600952}
+  - component: {fileID: 2197600360103388218}
   m_Layer: 5
-  m_Name: LightDrag
+  m_Name: LightTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1599096354961600952
+--- !u!114 &2197600360103388218
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -83,7 +83,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 231753322896189179}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31d24d8c294b20148a8298a4f01715f7, type: 3}
+  m_Script: {fileID: 11500000, guid: 00d0479cc569eb64f80c8874001f380c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 1
   controller: {fileID: 0}
+  gridTile: {fileID: 0}

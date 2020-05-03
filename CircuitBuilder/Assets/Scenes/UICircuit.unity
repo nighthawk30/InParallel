@@ -228,8 +228,10 @@ MonoBehaviour:
     type: 3}
   lightIcon: {fileID: 8307590232343644355, guid: 60222ca4b9df1f14d8cfb3e21211aad1,
     type: 3}
-  gTile: {fileID: -3341032338638214819, guid: e1c2a8ca157c8564b8dc81e0dd43d7e3, type: 3}
+  gSlot: {fileID: -5473059573783786396, guid: 93267dcaa879d76458f7256a3f113230, type: 3}
   currentSelection: {fileID: 0}
+  wired1: {fileID: 0}
+  wired2: {fileID: 0}
 --- !u!1 &378323702
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,10 +8,15 @@ public class Controller : MonoBehaviour
     //to create selector icons but might need 1 for each depending on how its done, hopefully can just change sprite and name
     public GameObject batteryIcon;
     public GameObject lightIcon;
-    [SerializeField] GridTile gTile;//to create grid tiles
+    public int[,] wireboard = new int[25,25];
+    [SerializeField] GridSlot gSlot;//to create grid tiles
     
     public GameObject currentSelection = null;//what the user is selecting
-    GridTile grid;
+    public GameObject wired1 = null;//the first of two components wired together
+    public GameObject wired2 = null;//the second of two components wired together
+
+
+    GridSlot grid;
 
     //The idea is that if the controller places in all the tiles, it can monitor which ones are being selected and tell the grid which are being placed
     //This will also be useful for circuit testing
@@ -23,8 +28,9 @@ public class Controller : MonoBehaviour
         for (int i = 0; i < 25; i++)
         {
             //Instantiate(Object original, Transform parent);
-            grid = Instantiate(gTile, transform.parent.GetChild(1));//slot it into the second child of the canvas, the grid, dont adjust scale
-            grid.gameObject.GetComponent<GridTile>().controller = this.gameObject;//tell the tile that this is the controller
+            grid = Instantiate(gSlot, transform.parent.GetChild(1));//slot it into the second child of the canvas, the grid, dont adjust scale
+            grid.gameObject.GetComponent<GridSlot>().controller = this.gameObject;//tell the tile that this is the controller
+            grid.gameObject.GetComponent<GridSlot>().buildnum = i + 1;
         }
 
         //add selector tiles to toolbar - probably individually, they will just be children of the main one I think - diff sprite and name
@@ -48,4 +54,19 @@ public class Controller : MonoBehaviour
         Application.Quit();//for builds
         //UnityEditor.EditorApplication.isPlaying = false;//for editor
     }
+    /*
+    public void Map()
+    {
+        if (wired1 != null && wired2 != null)
+        {
+            int build1 = wired1.GetComponent<GridSlot>().buildnum;
+            int build2 = wired2.GetComponent<GridSlot>().buildnum;
+
+            
+
+            wired1 = null;
+            wired2 = null;
+        }
+    }
+    */
 }
