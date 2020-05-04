@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &231753322896189179
+--- !u!1 &559558903469731643
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,64 +8,64 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4793519727334745321}
-  - component: {fileID: 6125454290369207013}
-  - component: {fileID: 9001271336679830262}
-  - component: {fileID: 2197600360103388218}
-  - component: {fileID: 6321049035440395193}
+  - component: {fileID: 2916400047488306538}
+  - component: {fileID: 3295646697246858766}
+  - component: {fileID: 2854700222971557246}
+  - component: {fileID: 4301431670710680511}
+  - component: {fileID: -252963357962197069}
   m_Layer: 5
-  m_Name: LightTile
+  m_Name: WireToggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &4793519727334745321
+--- !u!224 &2916400047488306538
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 231753322896189179}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_GameObject: {fileID: 559558903469731643}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &6125454290369207013
+--- !u!222 &3295646697246858766
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 231753322896189179}
+  m_GameObject: {fileID: 559558903469731643}
   m_CullTransparentMesh: 0
---- !u!114 &9001271336679830262
+--- !u!114 &2854700222971557246
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 231753322896189179}
+  m_GameObject: {fileID: 559558903469731643}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2bdc80601ef393340819ce709b818332, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6808689ba7a2c5d4786ef85eaa9642a1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -75,30 +75,28 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2197600360103388218
+--- !u!114 &4301431670710680511
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 231753322896189179}
+  m_GameObject: {fileID: 559558903469731643}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00d0479cc569eb64f80c8874001f380c, type: 3}
+  m_Script: {fileID: 11500000, guid: ef5b42837bdc0ae44a62957a84bd3a59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wire: {fileID: 7123724398987666787, guid: 3a72151546d9ba340aa8d3758de7e7b1, type: 3}
   controller: {fileID: 0}
-  gridTile: {fileID: 0}
-  red: {fileID: 0}
-  blue: {fileID: 0}
---- !u!114 &6321049035440395193
+  wireOn: {fileID: 21300000, guid: 9d2cc62d7cf92d248882a2c0f5b54430, type: 3}
+  wireOff: {fileID: 21300000, guid: 6808689ba7a2c5d4786ef85eaa9642a1, type: 3}
+--- !u!114 &-252963357962197069
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 231753322896189179}
+  m_GameObject: {fileID: 559558903469731643}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88d3c69f38ec59644a2af17c76a0d0bc, type: 3}

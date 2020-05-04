@@ -8,10 +8,11 @@ public class Controller : MonoBehaviour
     //to create selector icons but might need 1 for each depending on how its done, hopefully can just change sprite and name
     public GameObject batteryIcon;
     public GameObject lightIcon;
-    [SerializeField] GridSlot gSlot;//to create grid tiles
-    
+    [SerializeField] GridSlot gridSlot;//to create grid tiles
+    public GameObject wireToggle;
+
     public GameObject currentSelection = null;//what the user is selecting
-    public bool wireToggle = false;//is the wire toggle on
+    public bool wireSwitch = false;//is the wire toggle on
     public GameObject wireConnection;//the wire itself
 
     GridSlot grid;
@@ -21,6 +22,8 @@ public class Controller : MonoBehaviour
      * the only way to break a wire is to delete the wire or one of the connector objects
      * wire moves with objects it is bound to
      * when created first, the wire has start 
+     * In the future have wires automatically recolor based on connections
+     * Have more than two wires possible per element - need to check for double connections
      * turn off wireToggle by clicking the toggle or another selector
      */
 
@@ -39,7 +42,7 @@ public class Controller : MonoBehaviour
         for (int i = 0; i < gridSize; i++)
         {
             //Instantiate(Object original, Transform parent);
-            grid = Instantiate(gSlot, transform.parent.GetChild(1));//slot it into the second child of the canvas, the grid, dont adjust scale
+            grid = Instantiate(gridSlot, transform.parent.GetChild(1));//slot it into the second child of the canvas, the grid, dont adjust scale
             grid.gameObject.GetComponent<GridSlot>().controller = this.gameObject;//tell the tile that this is the controller
         }
 
@@ -50,6 +53,8 @@ public class Controller : MonoBehaviour
         light.gameObject.GetComponent<SelectorIcon>().controller = this.gameObject;
 
         //add wiretoggle to toggle bar
+        GameObject toggle = Instantiate(wireToggle, transform.parent.GetChild(3));//slot it into the third child of the canvas, the tool panel, dont adjust scale
+        toggle.gameObject.GetComponent<WireToggle>().controller = this.gameObject;
     }
 
     // Update is called once per frame

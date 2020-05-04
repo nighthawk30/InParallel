@@ -4,20 +4,22 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
+    public GameObject wire;
     int state = 0;//0: drag, 1: grid - sort of like can move, 2: wires
     int prevState = -1;//lets us run a function once upon entering a new state
     public GameObject controller;
     public GameObject gridTile;//the tile on the grid it is attached to
-    public GameObject wire1;//max of 2 wires - should point to wire which points to another object - on click 2
-    public GameObject wire2;
+    GameObject black;//the thing I use to shift variables around in obj
+    public GameObject red;//max of 2 wires - should point to wire which points to another object - on click 2
+    public GameObject blue;
 
     // Update is called once per frame
     void Update()
     {
-        if (controller.GetComponent<Controller>().wireToggle)
+        if (controller.GetComponent<Controller>().wireSwitch)
         {
             state = 2;
-            Wires();
+            //Wires();
         }
         else if (gridTile != null)
         {
@@ -33,14 +35,48 @@ public class Tile : MonoBehaviour
 
     void Wires()
     {
-        if (Input.GetMouseButtonDown(0) && GetComponent<TileHover>().HoverTest())//clicked with wires
+        if (Input.GetMouseButtonDown(0) && GetComponent<TileHover>().HoverTest() && (red == null || blue == null))//clicked with wires and there are more connections on this object - for now
         {
             if (controller.GetComponent<Controller>().wireConnection == null)//first click with wires
             {
-                //make a wire and set that wire in the controller and set this object as the first
+                black = Instantiate(wire, transform.position, transform.rotation, transform.parent);//create it
+                black.GetComponent<Wire>().controller = controller;//give it the controller
+                black.GetComponent<Wire>().element1 = this.gameObject;//tell  it this is the first element it is connected to
+                controller.GetComponent<Controller>().wireConnection = black;//set the controller for the next part
+
+                if (red == null)
+                {
+                    red = black;
+                }
+                else
+                {
+                    blue = black;
+                }
             }
             else//there already is a wire ADD AN IF THE WIRE THAT IS THERE IS THIS ONE, in that case, kill the wire
             {
+                black = controller.GetComponent<Controller>().wireConnection;
+                black.GetComponent<Wire>().element2 = this.gameObject;//it could only ever be the second one since it is destroyed if any of its elements disappear
+
+                if (black.GetComponent<Wire>().element2 == black.GetComponent<Wire>().element1)//clicked on the same object
+                {
+                    Destroy(black.gameObject);
+                    red = null;
+                    blue = null;
+                }
+                else
+                {
+                    if (red == null)
+                    {
+                        red = black;
+                    }
+                    else
+                    {
+                        blue = black;
+                    }
+                }
+
+                controller.GetComponent<Controller>().wireConnection = null;//clear the controller
                 //controller.GetComponent<Controller>().wireConnection
                 //set this as the wire second, set the wire as one of the wires and remove the wire from the controller
             }

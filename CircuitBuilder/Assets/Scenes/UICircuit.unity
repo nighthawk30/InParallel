@@ -228,10 +228,13 @@ MonoBehaviour:
     type: 3}
   lightIcon: {fileID: 8307590232343644355, guid: 60222ca4b9df1f14d8cfb3e21211aad1,
     type: 3}
-  gSlot: {fileID: -5473059573783786396, guid: 93267dcaa879d76458f7256a3f113230, type: 3}
+  gridSlot: {fileID: -5473059573783786396, guid: 93267dcaa879d76458f7256a3f113230,
+    type: 3}
+  wireToggle: {fileID: 559558903469731643, guid: deee8935c6ddd5d4ca46014d36e60aa9,
+    type: 3}
   currentSelection: {fileID: 0}
-  wired1: {fileID: 0}
-  wired2: {fileID: 0}
+  wireSwitch: 0
+  wireConnection: {fileID: 0}
 --- !u!1 &378323702
 GameObject:
   m_ObjectHideFlags: 0
