@@ -1,7 +1,7 @@
 # InParallel
 A two part puzzle based platformer game themed around electricity
-1: The Platformer - Use circuitry enhanced gadgets and gear to find your way to the exit portal at each level
-2: The Circuit Builder - In game, you have access to the most high tech stuff around, the only catch is that you have to build it yourself
+1) The Platformer - Use circuitry enhanced gadgets and gear to find your way to the exit portal at each level
+2) The Circuit Builder - In game, you have access to the most high tech stuff around, the only catch is that you have to build it yourself
 
 # The Platformer
 A puzzle based game where the exit is the goal
