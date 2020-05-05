@@ -53,6 +53,7 @@ MonoBehaviour:
   element1: {fileID: 0}
   element2: {fileID: 0}
   controller: {fileID: 0}
+  canvas: {fileID: 0}
 --- !u!222 &-2866795533375697322
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -79,7 +80,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7bd630758a5d72848812e63e266acc9e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 625f9b855930d494abcc25cbe9c82454, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
