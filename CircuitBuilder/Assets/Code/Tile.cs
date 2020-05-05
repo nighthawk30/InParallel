@@ -45,7 +45,6 @@ public class Tile : MonoBehaviour
                 black.GetComponent<Wire>().element1 = this.gameObject;//tell  it this is the first element it is connected to
                 controller.GetComponent<Controller>().wireConnection = black;//set the controller for the next part
 
-
                 if (red == null)
                 {
                     red = black;
