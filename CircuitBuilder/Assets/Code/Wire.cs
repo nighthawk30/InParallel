@@ -58,7 +58,7 @@ public class Wire : MonoBehaviour
 
     void Draw(Vector2 From, Vector2 To)
     {
-        GetComponent<RectTransform>().sizeDelta = new Vector2(2 * Vector2.Distance(From, To), GetComponent<RectTransform>().sizeDelta.y);//scale to distance
+        GetComponent<RectTransform>().sizeDelta = new Vector2(2 * Vector2.Distance(From, To) * 947 / Screen.width, GetComponent<RectTransform>().sizeDelta.y);//scale to distance and account for screen resize
         transform.eulerAngles = new Vector3(0, 0, -Mathf.Atan2((To.x - From.x), (To.y - From.y)) * Mathf.Rad2Deg + 90);//rotate to angle
         transform.position = (To - From) / 2 + From;//shift to halfway between
     }
