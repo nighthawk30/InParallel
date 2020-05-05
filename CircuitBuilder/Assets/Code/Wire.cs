@@ -38,6 +38,10 @@ public class Wire : MonoBehaviour
                 point1.x = element1.transform.position.x;
                 point1.y = element1.transform.position.y;
                 Draw(point1, mouse);
+                if (Input.GetMouseButtonDown(0))
+                {
+                    Destroy(gameObject);//if you click somewhere other than an empty tile
+                }
             }
             else
             {
