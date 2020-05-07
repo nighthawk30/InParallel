@@ -81,17 +81,52 @@ public class Controller : MonoBehaviour
         {
             if (board[i].GetComponent<GridSlot>().newTile != null)//there is a tile on that grid slot
             {
-                if (board[i].GetComponent<GridSlot>().newTile.GetComponent<Tile>().isBattery)//it is a battery
+                if (board[i].GetComponent<GridSlot>().newTile.GetComponent<Tile>().tileType == 1)//it is a battery
                 {
                     circuitBattery = board[i].GetComponent<GridSlot>().newTile;
                 }
             }
         }
+
         if (circuitBattery != null)
         {
             myCircuit.Clear();
             LoopCheck(circuitBattery, circuitBattery, null);//sets the element sequence in the loop connected to the first element - no elements mean no loop - also false means no loop
-            Debug.Log(myCircuit.Count);
+            CircuitType();
+        }
+        else
+        {
+            //there is no battery error
+            Debug.Log("Build Error: There is no battery in this circuit. Without a voltage source, your circuits won't work");
+        }
+    }
+
+    private void CircuitType()
+    {
+        if (myCircuit.Count >= 2)
+        {
+            int batteryCount = 0;
+            int lightCount = 0;
+            foreach (GameObject g in myCircuit)
+            {
+                if (g.GetComponent<Tile>().tileType == 2)//it is a light tile
+                {
+                    lightCount++;
+                }
+                else if (g.GetComponent<Tile>().tileType == 1)
+                {
+                    batteryCount++;
+                }
+            }
+
+            if (batteryCount == myCircuit.Count)//error there are only batteries
+            {
+                Debug.Log("Build Error: Without any components to provide resistance, you risk serious damage to your power source");
+            }
+        }
+        else//unconnected components
+        {
+            Debug.Log("Build Error: There are unconnected components");
         }
     }
 

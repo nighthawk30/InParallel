@@ -12,7 +12,7 @@ public class Tile : MonoBehaviour
     GameObject black;//the thing I use to shift variables around in obj
     public GameObject red;//max of 2 wires - should point to wire which points to another object - on click 2
     public GameObject blue;
-    public bool isBattery;//this is set externally, all battery tiles have battery tile true
+    public int tileType;//this is set externally
 
     // Update is called once per frame
     void Update()

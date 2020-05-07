@@ -92,7 +92,7 @@ MonoBehaviour:
   gridTile: {fileID: 0}
   red: {fileID: 0}
   blue: {fileID: 0}
-  isBattery: 1
+  tileType: 1
 --- !u!114 &9219532093089259203
 MonoBehaviour:
   m_ObjectHideFlags: 0
