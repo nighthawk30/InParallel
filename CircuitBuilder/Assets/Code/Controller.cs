@@ -90,7 +90,7 @@ public class Controller : MonoBehaviour
         if (circuitBattery != null)
         {
             myCircuit.Clear();
-            LoopCheck(circuitBattery, circuitBattery, null);//sets the element sequence in the loop connected to the first element - no elements mean no loop
+            LoopCheck(circuitBattery, circuitBattery, null);//sets the element sequence in the loop connected to the first element - no elements mean no loop - also false means no loop
             Debug.Log(myCircuit.Count);
         }
     }
