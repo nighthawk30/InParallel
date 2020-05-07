@@ -18,7 +18,7 @@ public class BuildButton : MonoBehaviour
             if (Input.GetMouseButtonDown(0))//clicked
             {
                 controller.GetComponent<Controller>().wireSwitch = false;//turn off wiring toggle
-                controller.GetComponent<Controller>().BuildCircuit();
+                controller.GetComponent<BuildCircuit>().Build();
             }
         }
         else
