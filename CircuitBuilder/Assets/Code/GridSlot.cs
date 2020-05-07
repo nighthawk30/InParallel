@@ -8,7 +8,7 @@ public class GridSlot : MonoBehaviour
     public Sprite BuildTile;
     public Sprite HoverTile;
     public GameObject controller;
-    GameObject newTile;//the tile object that this object becomes
+    public GameObject newTile;//the tile object that this object becomes
     bool place;//has something been placed on this tile
     bool hover;//is the tile being hovered over
 
@@ -43,7 +43,6 @@ public class GridSlot : MonoBehaviour
 
     void TilePlace()
     {
-
         newTile = controller.GetComponent<Controller>().currentSelection;//create a reference to the tile that is on it
         newTile.GetComponent<Tile>().gridTile = this.gameObject;//tell the tile that has been dropped on it that this is where it should be
         place = true;//a tile has been placed on this grid square

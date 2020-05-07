@@ -232,9 +232,12 @@ MonoBehaviour:
     type: 3}
   wireToggle: {fileID: 559558903469731643, guid: deee8935c6ddd5d4ca46014d36e60aa9,
     type: 3}
+  buildButton: {fileID: 694331949833727403, guid: c0dadfa6c13662043be4518200411601,
+    type: 3}
   currentSelection: {fileID: 0}
   wireSwitch: 0
   wireConnection: {fileID: 0}
+  circuitBattery: {fileID: 0}
 --- !u!1 &378323702
 GameObject:
   m_ObjectHideFlags: 0
