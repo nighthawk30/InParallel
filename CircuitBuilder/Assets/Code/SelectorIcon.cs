@@ -12,7 +12,7 @@ public class SelectorIcon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && GetComponent<TileHover>().HoverTest())//clicked
+        if (Input.GetMouseButtonDown(0) && GetComponent<Hover>().HoverTest())//clicked
         {
             //Instantiate(Object original, Vector3 position, Quaternion rotation, Transform parent);
             controller.GetComponent<Controller>().wireSwitch = false;//turn off wiring toggle

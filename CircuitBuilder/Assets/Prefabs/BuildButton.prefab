@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 694331949833727402}
   - component: {fileID: 694331949833727399}
   - component: {fileID: 694331949833727400}
-  - component: {fileID: 5532567027555540657}
   - component: {fileID: 2147321877965629135}
+  - component: {fileID: -3483114515023345788}
   m_Layer: 5
   m_Name: BuildButton
   m_TagString: Untagged
@@ -75,18 +75,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5532567027555540657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 694331949833727403}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88d3c69f38ec59644a2af17c76a0d0bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2147321877965629135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,3 +88,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 0}
+  off: {fileID: 21300000, guid: ef00bbf83dff76242a7bef1c4ac22ff0, type: 3}
+  on: {fileID: 21300000, guid: 74c0ae1c67f7f444e97eabbc6afe750e, type: 3}
+--- !u!114 &-3483114515023345788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694331949833727403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 676b98ddddf37204f962bc570fb94230, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

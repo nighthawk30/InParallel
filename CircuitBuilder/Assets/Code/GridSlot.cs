@@ -15,7 +15,7 @@ public class GridSlot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        hover = GetComponent<TileHover>().HoverTest();
+        hover = GetComponent<Hover>().HoverTest();
         if (!place)//if this tile has not been filled
         {
             if (hover)//test to switch the sprite - should only add a highlight ring to the sprite

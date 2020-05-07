@@ -13,7 +13,7 @@ public class WireToggle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && GetComponent<TileHover>().HoverTest())//it was clicked
+        if (Input.GetMouseButtonDown(0) && GetComponent<Hover>().HoverTest())//it was clicked
         {
             controller.GetComponent<Controller>().wireSwitch = !controller.GetComponent<Controller>().wireSwitch;//toggle wire toggle
         }

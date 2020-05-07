@@ -36,7 +36,7 @@ public class Tile : MonoBehaviour
 
     void Wires()
     {
-        if (Input.GetMouseButtonDown(0) && GetComponent<TileHover>().HoverTest() && (red == null || blue == null))//clicked with wires and there are more connections on this object - for now
+        if (Input.GetMouseButtonDown(0) && GetComponent<Hover>().HoverTest() && (red == null || blue == null))//clicked with wires and there are more connections on this object - for now
         {
             if (controller.GetComponent<Controller>().wireConnection == null)//first click with wires
             {
