@@ -9,7 +9,7 @@ public class CameraRotate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))//in the future only do this if you have boots, they are powered, you are on metal
         {
             transform.Rotate(0, 0, 90);
         }
