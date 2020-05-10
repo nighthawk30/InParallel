@@ -5,13 +5,15 @@ using UnityEngine;
 public class CameraRotate : MonoBehaviour
 {
     // Start is called before the first frame update
+    public GameObject pcontrol;
+    GameObject player;
+    void Start()
+    {
 
+    }
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))//in the future only do this if you have boots, they are powered, you are on metal
-        {
-            transform.Rotate(0, 0, 90);
-        }
+        transform.eulerAngles = new Vector3(0, 0, pcontrol.transform.eulerAngles.z);
     }
 }
