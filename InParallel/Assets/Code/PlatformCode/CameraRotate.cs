@@ -14,6 +14,6 @@ public class CameraRotate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.eulerAngles = new Vector3(0, 0, pcontrol.transform.eulerAngles.z);
+        //transform.eulerAngles = new Vector3(0, 0, pcontrol.transform.eulerAngles.z);
     }
 }
