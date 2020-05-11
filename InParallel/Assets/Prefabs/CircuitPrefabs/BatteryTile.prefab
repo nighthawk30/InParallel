@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4207456917953516381}
   - component: {fileID: 1423172983472566746}
   - component: {fileID: 9219532093089259203}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: BatteryTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}

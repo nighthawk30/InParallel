@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9001271336679830262}
   - component: {fileID: 2197600360103388218}
   - component: {fileID: 2713646929624744904}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: LightTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
