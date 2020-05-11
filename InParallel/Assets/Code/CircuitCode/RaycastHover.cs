@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RaycastHover : MonoBehaviour
 {
+    //The topmost object you are hovering over - depends on collider rather than arbitrary bounds - both are necessary
     RaycastHit2D hit;
     public GameObject rayHover;//the object that is being hovered over
 
@@ -12,7 +13,7 @@ public class RaycastHover : MonoBehaviour
         rayHover = RayHover();
     }
 
-    public GameObject RayHover()
+    public GameObject RayHover()//returns the first object of the collider that the raycast hit
     {
         hit = Physics2D.Linecast(Input.mousePosition, Input.mousePosition);
         if (hit.collider != null)

@@ -4,6 +4,7 @@ using UnityEngine;
 //is the cursor over the object
 public class Hover : MonoBehaviour
 {
+    //returns if the cursor is in an arbitrary box
     float tileScale;
     public bool HoverTest()
     {
