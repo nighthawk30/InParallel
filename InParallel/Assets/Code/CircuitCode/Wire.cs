@@ -10,8 +10,12 @@ public class Wire : MonoBehaviour
     public GameObject element2;
     public GameObject controller;
     public GameObject otherWire;
+    public Sprite hoveron;
+    public Sprite hoveroff;
+    public Sprite select;
     public float shiftDirection;
     bool set = false;
+    bool cutwire = false;
     float positionAdd;//for altering position in case of double wires
     Vector2 mouse = new Vector2(0, 0);
     Vector2 point1 = new Vector2(0, 0);
@@ -20,6 +24,35 @@ public class Wire : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (controller.GetComponent<RaycastHover>().rayHover == gameObject)//System for hovering selecting and cutting a wire
+        {
+            GetComponent<Image>().sprite = hoveron;
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (cutwire)
+                {
+                    Destroy(gameObject);
+                }
+                else
+                {
+                    cutwire = true;
+                }
+            }
+        }
+        else
+        {
+            GetComponent<Image>().sprite = hoveroff;
+            if (Input.GetMouseButtonDown(0))
+            {
+                cutwire = false;
+            }
+        }
+
+        if (cutwire)
+        {
+            GetComponent<Image>().sprite = select;
+        }
+
         if (set && (element1 == null || element2 == null))//if the wire was placed and then an element was destroyed, break it
         {
             Destroy(gameObject);
@@ -63,6 +96,7 @@ public class Wire : MonoBehaviour
         GetComponent<RectTransform>().sizeDelta = new Vector2(2 * Vector2.Distance(From, To) * 947f / Screen.width, GetComponent<RectTransform>().sizeDelta.y);//scale to distance and account for screen resize
         transform.eulerAngles = new Vector3(0, 0, -Mathf.Atan2((To.x - From.x), (To.y - From.y)) * Mathf.Rad2Deg + 90);//proper angle between the two points
         transform.position = (To - From) / 2 + From;//shift to halfway between
+        GetComponent<BoxCollider2D>().size = new Vector2(2 * Vector2.Distance(From, To) * 947f / Screen.width, GetComponent<BoxCollider2D>().size.y);//scale collider as well
     }
 
     bool DoubleWire()//adds a shift to the wire position in case of a double wire, to separate them - not very efficient

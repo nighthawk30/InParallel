@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 445838021534541223}
   - component: {fileID: -2866795533375697322}
   - component: {fileID: -1954060238202222285}
+  - component: {fileID: 4810158578341817333}
   m_Layer: 5
   m_Name: Wire
   m_TagString: Untagged
@@ -53,7 +54,11 @@ MonoBehaviour:
   element1: {fileID: 0}
   element2: {fileID: 0}
   controller: {fileID: 0}
-  canvas: {fileID: 0}
+  otherWire: {fileID: 0}
+  hoveron: {fileID: 21300000, guid: 1cf00b9d2f5f12d48a4d4d694c15ff60, type: 3}
+  hoveroff: {fileID: 21300000, guid: 625f9b855930d494abcc25cbe9c82454, type: 3}
+  select: {fileID: 21300000, guid: fe1c4987bf4dbf9448e0662ef875c9b6, type: 3}
+  shiftDirection: 0
 --- !u!222 &-2866795533375697322
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -90,3 +95,29 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!61 &4810158578341817333
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7123724398987666787}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 150, y: 20}
+  m_EdgeRadius: 0
