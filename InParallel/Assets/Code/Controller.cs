@@ -23,26 +23,29 @@ public class Controller : MonoBehaviour
     // Start is called before the first frame update
     void Start()//build ui
     {
+        grid = Instantiate(gridSlot, transform.parent.GetChild(1));//output slot
+        grid.gameObject.GetComponent<GridSlot>().controller = this.gameObject;//tell the tile that this is the controller
+
         //add all tiles to grid
         for (int i = 0; i < gridSize; i++)
         {
             //Instantiate(Object original, Transform parent);
-            grid = Instantiate(gridSlot, transform.parent.GetChild(1));//slot it into the second child of the canvas, the grid, dont adjust scale
+            grid = Instantiate(gridSlot, transform.parent.GetChild(2));//slot it into the second child of the canvas, the grid, dont adjust scale
             grid.gameObject.GetComponent<GridSlot>().controller = this.gameObject;//tell the tile that this is the controller
             board[i] = grid.gameObject;
         }
 
-        GameObject build = Instantiate(buildButton, transform.parent.GetChild(2));//slot it into the third child of the canvas, the tool panel, dont adjust scale
+        GameObject build = Instantiate(buildButton, transform.parent.GetChild(3));//slot it into the third child of the canvas, the tool panel, dont adjust scale
         build.gameObject.GetComponent<BuildButton>().controller = this.gameObject;
 
         //add selector tiles to toolbar - probably individually, they will just be children of the main one I think - diff sprite and name
-        GameObject battery = Instantiate(batteryIcon, transform.parent.GetChild(3));//slot it into the third child of the canvas, the tool panel, dont adjust scale
+        GameObject battery = Instantiate(batteryIcon, transform.parent.GetChild(4));//slot it into the third child of the canvas, the tool panel, dont adjust scale
         battery.gameObject.GetComponent<SelectorIcon>().controller = this.gameObject;//tell the selector that this is the controller
-        GameObject light = Instantiate(lightIcon, transform.parent.GetChild(3));//slot it into the third child of the canvas, the tool panel, dont adjust scale
+        GameObject light = Instantiate(lightIcon, transform.parent.GetChild(4));//slot it into the third child of the canvas, the tool panel, dont adjust scale
         light.gameObject.GetComponent<SelectorIcon>().controller = this.gameObject;
 
         //add wiretoggle to toggle bar
-        GameObject toggle = Instantiate(wireToggle, transform.parent.GetChild(3));//slot it into the third child of the canvas, the tool panel, dont adjust scale
+        GameObject toggle = Instantiate(wireToggle, transform.parent.GetChild(4));//slot it into the third child of the canvas, the tool panel, dont adjust scale
         toggle.gameObject.GetComponent<WireToggle>().controller = this.gameObject;
     }
 
