@@ -41,6 +41,7 @@ public class Tile : MonoBehaviour
             if (controller.GetComponent<Controller>().wireConnection == null)//first click with wires
             {
                 black = Instantiate(wire, transform.position, transform.rotation, transform.parent);//create it
+                //black.SetSiblingIndex(transform.parent.childCount - 1);//wires should be drawn last
                 black.GetComponent<RectTransform>().sizeDelta = GetComponent<RectTransform>().sizeDelta;//give it the proper size
                 black.GetComponent<Wire>().controller = controller;//give it the controller
                 black.GetComponent<Wire>().element1 = this.gameObject;//tell  it this is the first element it is connected to

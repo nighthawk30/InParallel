@@ -17,6 +17,7 @@ public class SelectorIcon : MonoBehaviour
             //Instantiate(Object original, Vector3 position, Quaternion rotation, Transform parent);
             controller.GetComponent<Controller>().wireSwitch = false;//turn off wiring toggle
             GameObject vroom = Instantiate(tile, transform.position, transform.rotation, transform.parent.transform.parent);//parent must be out of the layout so it can be freely dragged by mouse
+            vroom.transform.SetSiblingIndex(transform.parent.GetSiblingIndex() + 1);//put tiles at top so drawing order is followed
             vroom.GetComponent<RectTransform>().sizeDelta = transform.parent.GetComponent<GridLayoutGroup>().cellSize;//dynamically set size of dragtile to fit that of the cell
             vroom.GetComponent<Tile>().controller = controller;//give the tile a reference to the controller
         }

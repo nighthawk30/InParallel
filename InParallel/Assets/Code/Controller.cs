@@ -32,18 +32,18 @@ public class Controller : MonoBehaviour
             board[i] = grid.gameObject;
         }
 
+        GameObject build = Instantiate(buildButton, transform.parent.GetChild(2));//slot it into the third child of the canvas, the tool panel, dont adjust scale
+        build.gameObject.GetComponent<BuildButton>().controller = this.gameObject;
+
         //add selector tiles to toolbar - probably individually, they will just be children of the main one I think - diff sprite and name
-        GameObject battery = Instantiate(batteryIcon, transform.parent.GetChild(2));//slot it into the third child of the canvas, the tool panel, dont adjust scale
+        GameObject battery = Instantiate(batteryIcon, transform.parent.GetChild(3));//slot it into the third child of the canvas, the tool panel, dont adjust scale
         battery.gameObject.GetComponent<SelectorIcon>().controller = this.gameObject;//tell the selector that this is the controller
-        GameObject light = Instantiate(lightIcon, transform.parent.GetChild(2));//slot it into the third child of the canvas, the tool panel, dont adjust scale
+        GameObject light = Instantiate(lightIcon, transform.parent.GetChild(3));//slot it into the third child of the canvas, the tool panel, dont adjust scale
         light.gameObject.GetComponent<SelectorIcon>().controller = this.gameObject;
 
         //add wiretoggle to toggle bar
-        GameObject toggle = Instantiate(wireToggle, transform.parent.GetChild(2));//slot it into the third child of the canvas, the tool panel, dont adjust scale
+        GameObject toggle = Instantiate(wireToggle, transform.parent.GetChild(3));//slot it into the third child of the canvas, the tool panel, dont adjust scale
         toggle.gameObject.GetComponent<WireToggle>().controller = this.gameObject;
-
-        GameObject build = Instantiate(buildButton, transform.parent.GetChild(3));//slot it into the third child of the canvas, the tool panel, dont adjust scale
-        build.gameObject.GetComponent<BuildButton>().controller = this.gameObject;
     }
 
     // Update is called once per frame
