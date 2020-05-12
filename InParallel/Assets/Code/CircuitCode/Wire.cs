@@ -24,9 +24,9 @@ public class Wire : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!controller.GetComponent<Controller>().wireSwitch)
+        if (controller.GetComponent<RaycastHover>().rayHover == gameObject)//System for hovering selecting and cutting a wire
         {
-            if (controller.GetComponent<RaycastHover>().rayHover == gameObject)//System for hovering selecting and cutting a wire
+            if (!controller.GetComponent<Controller>().wireSwitch)//only 
             {
                 GetComponent<Image>().sprite = hoveron;
                 if (Input.GetMouseButtonDown(0))
@@ -41,20 +41,20 @@ public class Wire : MonoBehaviour
                     }
                 }
             }
-            else
+        }
+        else
+        {
+            GetComponent<Image>().sprite = hoveroff;
+            if (Input.GetMouseButtonDown(0))
             {
-                GetComponent<Image>().sprite = hoveroff;
-                if (Input.GetMouseButtonDown(0))
-                {
-                    cutwire = false;
-                }
-            }
-            if (cutwire)
-            {
-                GetComponent<Image>().sprite = select;
+                cutwire = false;
             }
         }
-        
+        if (cutwire)
+        {
+            GetComponent<Image>().sprite = select;
+        }
+
         if (set && (element1 == null || element2 == null))//if the wire was placed and then an element was destroyed, break it
         {
             Destroy(gameObject);
