@@ -11,6 +11,9 @@ public class Controller : MonoBehaviour
     [SerializeField] GridSlot gridSlot;//to create grid tiles
     public GameObject wireToggle;
     public GameObject buildButton;
+    public GameObject craftTile;
+    public GameObject toolTip;
+    public GameObject tip;
 
     public GameObject currentSelection = null;//what the user is selecting this a way of passing references between objects
     public bool wireSwitch = false;//is the wire toggle on
@@ -23,30 +26,29 @@ public class Controller : MonoBehaviour
     // Start is called before the first frame update
     void Start()//build ui
     {
-        grid = Instantiate(gridSlot, transform.parent.GetChild(1));//output slot
-        grid.gameObject.GetComponent<GridSlot>().controller = this.gameObject;//tell the tile that this is the controller
-
         //add all tiles to grid
         for (int i = 0; i < gridSize; i++)
         {
             //Instantiate(Object original, Transform parent);
-            grid = Instantiate(gridSlot, transform.parent.GetChild(2));//slot it into the second child of the canvas, the grid, dont adjust scale
+            grid = Instantiate(gridSlot, transform.parent.GetChild(1).GetChild(0));//slot it into the second child of the canvas, the grid, dont adjust scale
             grid.gameObject.GetComponent<GridSlot>().controller = this.gameObject;//tell the tile that this is the controller
             board[i] = grid.gameObject;
         }
-
-        GameObject build = Instantiate(buildButton, transform.parent.GetChild(3));//slot it into the third child of the canvas, the tool panel, dont adjust scale
+        //Add Selector Tiles
+        GameObject build = Instantiate(buildButton, transform.parent.GetChild(1).GetChild(1));//slot it into the third child of the canvas, the tool panel, dont adjust scale
         build.gameObject.GetComponent<BuildButton>().controller = this.gameObject;
-
         //add selector tiles to toolbar - probably individually, they will just be children of the main one I think - diff sprite and name
-        GameObject battery = Instantiate(batteryIcon, transform.parent.GetChild(4));//slot it into the third child of the canvas, the tool panel, dont adjust scale
+        GameObject battery = Instantiate(batteryIcon, transform.parent.GetChild(1).GetChild(2));//slot it into the third child of the canvas, the tool panel, dont adjust scale
         battery.gameObject.GetComponent<SelectorIcon>().controller = this.gameObject;//tell the selector that this is the controller
-        GameObject light = Instantiate(lightIcon, transform.parent.GetChild(4));//slot it into the third child of the canvas, the tool panel, dont adjust scale
+        GameObject light = Instantiate(lightIcon, transform.parent.GetChild(1).GetChild(2));//slot it into the third child of the canvas, the tool panel, dont adjust scale
         light.gameObject.GetComponent<SelectorIcon>().controller = this.gameObject;
-
+        GameObject craft = Instantiate(craftTile, transform.parent.GetChild(1).GetChild(3));//output slot
+        craft.gameObject.GetComponent<CraftTile>().controller = this.gameObject;//tell the tile that this is the controller
         //add wiretoggle to toggle bar
-        GameObject toggle = Instantiate(wireToggle, transform.parent.GetChild(4));//slot it into the third child of the canvas, the tool panel, dont adjust scale
+        GameObject toggle = Instantiate(wireToggle, transform.parent.GetChild(1).GetChild(2));//slot it into the third child of the canvas, the tool panel, dont adjust scale
         toggle.gameObject.GetComponent<WireToggle>().controller = this.gameObject;
+
+        tip = Instantiate(toolTip, transform.parent.GetChild(4));//Draw layer +4 - topmost
     }
 
     // Update is called once per frame
@@ -55,6 +57,13 @@ public class Controller : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Quit();
+        }
+        //testing
+        if (Input.GetMouseButtonUp(0))
+        {
+            Debug.Log("Build:");
+            GetComponent<BuildCircuit>().Build();
+
         }
     }
 

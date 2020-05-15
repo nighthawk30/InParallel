@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RaycastHover : MonoBehaviour
 {
-    //The topmost object you are hovering over - depends on collider rather than arbitrary bounds - both are necessary
+    //The (1) topmost object you are hovering over - depends on collider rather than arbitrary bounds - both hover tests are necessary
     RaycastHit2D hit;
     public GameObject rayHover;//the object that is being hovered over
 

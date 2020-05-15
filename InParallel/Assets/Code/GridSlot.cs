@@ -34,9 +34,13 @@ public class GridSlot : MonoBehaviour
         }
         else //turns it into a modified selector tile to work as an inventory slot
         {
-            if (hover && Input.GetMouseButtonDown(0) && !controller.GetComponent<Controller>().wireSwitch)//checks that you arent trying to place a wire instead of move the object
+            if (hover && Input.GetMouseButtonDown(0))//standard hover & click check
             {
-                TileRemove();//let the tile be moved
+                //checks that you arent trying to place or remove a wire instead of move the object 
+                if (!controller.GetComponent<Controller>().wireSwitch && controller.GetComponent<RaycastHover>().rayHover == null)
+                {
+                    TileRemove();//let the tile be moved
+                }
             }
         }
     }

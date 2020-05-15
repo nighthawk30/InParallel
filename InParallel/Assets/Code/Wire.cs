@@ -9,76 +9,34 @@ public class Wire : MonoBehaviour
     public GameObject element1;
     public GameObject element2;
     public GameObject controller;
-    public GameObject otherWire;
-    public Sprite hoveron;
-    public Sprite hoveroff;
-    public Sprite select;
-    public float shiftDirection;
-    bool set = false;
-    bool cutwire = false;
+    public GameObject otherWire;//if there is a double wire - 2 elements double connected - coordinate with it
+    public Sprite hoveron;//the wire is hovered
+    public Sprite hoveroff;//the wire is not hovered
+    public Sprite select;//the wire is selected
+    public float shiftDirection;//if there are double wires, the shift separates them
+    int cutCount = 0;//state for wire cutting 0: nothing 1: hover 2: click1 3: click2 - cut
+    bool set = false;//are both elements set to a tile
     float positionAdd;//for altering position in case of double wires
-    Vector2 mouse = new Vector2(0, 0);
-    Vector2 point1 = new Vector2(0, 0);
-    Vector2 point2 = new Vector2(0, 0);
+    Vector2 mouse = new Vector2(0, 0);//mouse position
+    Vector2 point1 = new Vector2(0, 0);//location of element1 - drawing purposes
+    Vector2 point2 = new Vector2(0, 0);//location of element2 - drawing purposes
 
     // Update is called once per frame
     void Update()
     {
-        if (controller.GetComponent<RaycastHover>().rayHover == gameObject)//System for hovering selecting and cutting a wire
+        //System for hovering selecting and cutting a wire - cannot both place and cut wires
+        HoverCut();
+        //the other end has been placed
+        if (element2 != null)
         {
-            if (!controller.GetComponent<Controller>().wireSwitch)//only 
-            {
-                GetComponent<Image>().sprite = hoveron;
-                if (Input.GetMouseButtonDown(0))
-                {
-                    if (cutwire)
-                    {
-                        Destroy(gameObject);
-                    }
-                    else
-                    {
-                        cutwire = true;
-                    }
-                }
-            }
+            set = true;
         }
-        else
+        //system for drawing wires and determining if they should be cut by default
+        if (set)//the wire is set
         {
-            GetComponent<Image>().sprite = hoveroff;
-            if (Input.GetMouseButtonDown(0))
+            if (element1 == null || element2 == null)//an element was removed
             {
-                cutwire = false;
-            }
-        }
-        if (cutwire)
-        {
-            GetComponent<Image>().sprite = select;
-        }
-
-        if (set && (element1 == null || element2 == null))//if the wire was placed and then an element was destroyed, break it
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            if (element2 != null)//the other end has been placed
-            {
-                set = true;
-            }
-
-            if (!set)
-            {
-                //draw between obj1 and mouse
-                //set position
-                mouse.x = Input.mousePosition.x;
-                mouse.y = Input.mousePosition.y;
-                point1.x = element1.transform.position.x;
-                point1.y = element1.transform.position.y;
-                Draw(point1, mouse);
-                if (Input.GetMouseButtonDown(0))//update order shenanigans - will always destroy the wire when you click, but if you click on a tile, this code wont run bc it will then be set
-                {
-                    Destroy(gameObject);//if you click somewhere other than an empty tile
-                }
+                Destroy(gameObject);
             }
             else
             {
@@ -91,9 +49,56 @@ public class Wire : MonoBehaviour
                 Draw(point1, point2);
             }
         }
+        else//the wire is not set
+        {
+            if (Input.GetMouseButtonDown(0))//they have clicked and not set it to a tile
+            {
+                Destroy(gameObject);//if you click somewhere other than an empty tile
+            }
+            else
+            {
+                mouse.x = Input.mousePosition.x;
+                mouse.y = Input.mousePosition.y;
+                point1.x = element1.transform.position.x;
+                point1.y = element1.transform.position.y;
+                Draw(point1, mouse);
+            }
+        }
     }
 
-    void Draw(Vector2 From, Vector2 To)
+    void HoverCut()
+    {
+        if (Input.GetMouseButtonDown(0) && controller.GetComponent<RaycastHover>().rayHover == gameObject &&
+            !controller.GetComponent<Controller>().wireSwitch)//hover and click
+        {
+            cutCount++;
+        }
+        else if (controller.GetComponent<RaycastHover>().rayHover == gameObject && 
+            !controller.GetComponent<Controller>().wireSwitch)//just hover
+        {
+            GetComponent<Image>().sprite = hoveron;
+        }
+        else if (Input.GetMouseButtonDown(0))//just click - not on the wire
+        {
+            cutCount = 0;
+        }
+        else//no action
+        {
+            GetComponent<Image>().sprite = hoveroff;
+        }
+
+        switch (cutCount)
+        {
+            case 1:
+                GetComponent<Image>().sprite = select;//wire selected
+                break;
+            case 2:
+                Destroy(gameObject);//wire cut
+                break;
+        }
+    }
+
+    void Draw(Vector2 From, Vector2 To)//draw line between two points
     {
         GetComponent<RectTransform>().sizeDelta = new Vector2(2 * Vector2.Distance(From, To) * 947f / Screen.width, GetComponent<RectTransform>().sizeDelta.y);//scale to distance and account for screen resize
         transform.eulerAngles = new Vector3(0, 0, -Mathf.Atan2((To.x - From.x), (To.y - From.y)) * Mathf.Rad2Deg + 90);//proper angle between the two points
@@ -101,7 +106,7 @@ public class Wire : MonoBehaviour
         GetComponent<BoxCollider2D>().size = new Vector2(2 * Vector2.Distance(From, To) * 947f / Screen.width, GetComponent<BoxCollider2D>().size.y);//scale collider as well
     }
 
-    bool DoubleWire()//adds a shift to the wire position in case of a double wire, to separate them - not very efficient
+    bool DoubleWire()//adds a shift to the wire position in case of a double wire, to separate them
     {
         //set otherwire to the other wire connected to element1
         if (element1.GetComponent<Tile>().red == this.gameObject)//the red wire of element1 is this object
