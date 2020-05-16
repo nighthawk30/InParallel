@@ -190,6 +190,7 @@ public class BuildCircuit : MonoBehaviour
         if (!errorFound)
         {
             boardText.text += "You are good to go!\n";
+            boardText.text = "";
         }
         //reset
         for (int i = 0; i < errorType.Length; i++)
