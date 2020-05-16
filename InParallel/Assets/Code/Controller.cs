@@ -56,7 +56,7 @@ public class Controller : MonoBehaviour
             Quit();
         }
         //testing
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) && wireConnection == null)//intervals and you arent placing wires
         {
             StartCoroutine(DelayBuild(0.1f));
         }

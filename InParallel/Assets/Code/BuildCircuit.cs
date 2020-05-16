@@ -21,14 +21,15 @@ public class BuildCircuit : MonoBehaviour
         {
             if (board[i].GetComponent<GridSlot>().newTile != null)//there is a tile on that grid slot
             {
+                //a component is not fully connected
+                if (board[i].GetComponent<GridSlot>().newTile.GetComponent<Tile>().red == null || 
+                    board[i].GetComponent<GridSlot>().newTile.GetComponent<Tile>().blue == null)
+                {
+                    errorType[1] = true;
+                }
                 if (board[i].GetComponent<GridSlot>().newTile.GetComponent<Tile>().tileType == 1)//it is a battery
                 {
                     batteryList.Add(board[i].GetComponent<GridSlot>().newTile);
-                    if (board[i].GetComponent<GridSlot>().newTile.GetComponent<Tile>().red == null ||//a component is not fully connected
-                        board[i].GetComponent<GridSlot>().newTile.GetComponent<Tile>().blue == null)
-                    {
-                        errorType[1] = true;
-                    }
                 }
             }
         }
