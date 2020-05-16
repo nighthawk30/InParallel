@@ -41,10 +41,13 @@ public class SelectorIcon : MonoBehaviour
         //tooltip 
         if (GetComponent<Hover>().HoverTest() && !enter)
         {
-            enter = true;
-            controller.GetComponent<Controller>().toolTip.GetComponent<Tooltip>().ShowTooltip(tool);
+            if (!Input.GetMouseButton(0))
+            {
+                enter = true;
+                controller.GetComponent<Controller>().toolTip.GetComponent<Tooltip>().ShowTooltip(tool);
+            }
         }
-        if (enter && !GetComponent<Hover>().HoverTest())
+        if ((enter && !GetComponent<Hover>().HoverTest()) || Input.GetMouseButton(0))
         {
             enter = false;
             controller.GetComponent<Controller>().toolTip.GetComponent<Tooltip>().HideTooltip();
