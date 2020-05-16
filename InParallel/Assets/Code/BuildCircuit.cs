@@ -175,7 +175,7 @@ public class BuildCircuit : MonoBehaviour
         if (errorType[1])
         {
             errorFound = true;
-            boardText.text +=  "There are unconnected components. All components should be fully connected before build\n";
+            boardText.text +=  "There are unconnected components. All components should be connected by two wires\n";
         }
         if (errorType[2])
         {
@@ -190,7 +190,6 @@ public class BuildCircuit : MonoBehaviour
         if (!errorFound)
         {
             boardText.text += "You are good to go!\n";
-            boardText.text = "";
         }
         //reset
         for (int i = 0; i < errorType.Length; i++)
