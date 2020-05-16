@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BuildCircuit : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class BuildCircuit : MonoBehaviour
     List<List<GameObject>> circuitList = new List<List<GameObject>>();//a list of the circuits in the grid
     bool[] errorType = new bool[4];//keeps track of the errors logged in this build
     GameObject[] board;
+    [SerializeField] Text boardText;
 
     public void Build()
     {
@@ -161,30 +163,32 @@ public class BuildCircuit : MonoBehaviour
     private bool ErrorLog()
     {
         bool errorFound = false;
+        boardText.text = "";
         //set error messages 
         if (errorType[0])//0: no battery, 1: unconnected battery/components, 2: only batteries, 3: no resistors? - required
         {
             errorFound = true;
-            Debug.Log("Your circuit is missing a battery. Without a voltage source, it will not function");
+            boardText.text += "Your circuit is missing a battery. Without a voltage source, it will not function\n";
+            //Debug.Log("Your circuit is missing a battery. Without a voltage source, it will not function");
         }
         if (errorType[1])
         {
             errorFound = true;
-            Debug.Log("There are unconnected components. All components should be fully connected before build");
+            boardText.text +=  "There are unconnected components. All components should be fully connected before build\n";
         }
         if (errorType[2])
         {
             errorFound = true;
-            Debug.Log("Your circuit has no function. Without sufficient resistance, you can cause serious damage to your power source");
+            boardText.text += "Your circuit has no function. Without sufficient resistance, you can cause serious damage to your power source\n";
         }
         if (errorType[3])
         {
             errorFound = true;
-            Debug.Log("Your circuit has no resistance. Without sufficient resistance, you can cause serious damage to your power source");
+            boardText.text += "Your circuit has no resistance. Without sufficient resistance, you can cause serious damage to your power source\n";
         }
         if (!errorFound)
         {
-            Debug.Log("You are good to go!");
+            boardText.text += "You are good to go!\n";
         }
         //reset
         for (int i = 0; i < errorType.Length; i++)

@@ -21,6 +21,7 @@ public class Controller : MonoBehaviour
     GridSlot grid;
     int gridSize = 25;
     public GameObject[] board = new GameObject[25];
+    bool corunning = false;
 
     // Start is called before the first frame update
     void Start()//build ui
@@ -57,10 +58,22 @@ public class Controller : MonoBehaviour
         //testing
         if (Input.GetMouseButtonUp(0))
         {
-            Debug.Log("Build:");
-            GetComponent<BuildCircuit>().Build();
-
+            StartCoroutine(DelayBuild(0.1f));
         }
+    }
+
+    IEnumerator DelayBuild(float time)
+    {
+        if (corunning)
+        {
+            yield break;
+        }
+        corunning = true;
+        yield return new WaitForSeconds(time);
+        //
+        GetComponent<BuildCircuit>().Build();
+        //
+        corunning = false;
     }
 
     public void Quit()
