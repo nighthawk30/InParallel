@@ -8,11 +8,6 @@ public class Tooltip : MonoBehaviour
     [SerializeField] Text tooltipText;
     [SerializeField] Image tooltipImage;
 
-    void Awake()
-    {
-        ShowTooltip("Random Text again");
-    }
-
     void Update()
     {
         transform.position = Input.mousePosition;
@@ -20,6 +15,7 @@ public class Tooltip : MonoBehaviour
 
     public void ShowTooltip(string tooltipString)
     {
+        transform.position = Input.mousePosition;//avoids frame of moving ui
         gameObject.SetActive(true);
         tooltipText.text = tooltipString;
         float paddingSize = 4f;

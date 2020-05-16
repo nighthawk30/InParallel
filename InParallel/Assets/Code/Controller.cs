@@ -13,7 +13,6 @@ public class Controller : MonoBehaviour
     public GameObject buildButton;
     public GameObject craftTile;
     public GameObject toolTip;
-    public GameObject tip;
 
     public GameObject currentSelection = null;//what the user is selecting this a way of passing references between objects
     public bool wireSwitch = false;//is the wire toggle on
@@ -35,20 +34,17 @@ public class Controller : MonoBehaviour
             board[i] = grid.gameObject;
         }
         //Add Selector Tiles
-        GameObject build = Instantiate(buildButton, transform.parent.GetChild(1).GetChild(1));//slot it into the third child of the canvas, the tool panel, dont adjust scale
-        build.gameObject.GetComponent<BuildButton>().controller = this.gameObject;
-        //add selector tiles to toolbar - probably individually, they will just be children of the main one I think - diff sprite and name
-        GameObject battery = Instantiate(batteryIcon, transform.parent.GetChild(1).GetChild(2));//slot it into the third child of the canvas, the tool panel, dont adjust scale
+        GameObject battery = Instantiate(batteryIcon, transform.parent.GetChild(1).GetChild(1));//slot it into the third child of the canvas, the tool panel, dont adjust scale
         battery.gameObject.GetComponent<SelectorIcon>().controller = this.gameObject;//tell the selector that this is the controller
-        GameObject light = Instantiate(lightIcon, transform.parent.GetChild(1).GetChild(2));//slot it into the third child of the canvas, the tool panel, dont adjust scale
+        GameObject light = Instantiate(lightIcon, transform.parent.GetChild(1).GetChild(1));//slot it into the third child of the canvas, the tool panel, dont adjust scale
         light.gameObject.GetComponent<SelectorIcon>().controller = this.gameObject;
-        GameObject craft = Instantiate(craftTile, transform.parent.GetChild(1).GetChild(3));//output slot
-        craft.gameObject.GetComponent<CraftTile>().controller = this.gameObject;//tell the tile that this is the controller
-        //add wiretoggle to toggle bar
-        GameObject toggle = Instantiate(wireToggle, transform.parent.GetChild(1).GetChild(2));//slot it into the third child of the canvas, the tool panel, dont adjust scale
+        GameObject toggle = Instantiate(wireToggle, transform.parent.GetChild(1).GetChild(1));//slot it into the third child of the canvas, the tool panel, dont adjust scale
         toggle.gameObject.GetComponent<WireToggle>().controller = this.gameObject;
-
-        tip = Instantiate(toolTip, transform.parent.GetChild(4));//Draw layer +4 - topmost
+        //Add Craft Window
+        GameObject craft = Instantiate(craftTile, transform.parent.GetChild(1).GetChild(2));//output slot
+        craft.gameObject.GetComponent<CraftTile>().controller = this.gameObject;//tell the tile that this is the controller
+        //Add tooltip ui
+        toolTip = Instantiate(toolTip, transform.parent.GetChild(4));//Draw layer +4 - topmost
     }
 
     // Update is called once per frame
