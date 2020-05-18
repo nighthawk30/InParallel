@@ -89,7 +89,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile: {fileID: 231753322896189179, guid: 53384c3a3eeaf0949a78e7d72834845a, type: 3}
   controller: {fileID: 0}
-  iconType: 1
+  iconType: Light
 --- !u!114 &-4756096277331409692
 MonoBehaviour:
   m_ObjectHideFlags: 0

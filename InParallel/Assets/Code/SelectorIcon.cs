@@ -8,22 +8,8 @@ public class SelectorIcon : MonoBehaviour
 {
     public GameObject tile;//a reference to the specific  tile that this selector uses
     public GameObject controller;
-    string tool;
-    public int iconType;
+    public string iconType;
     bool enter = false;//keeps track of when the mouse enters the icon to show the tool tip
-
-    void Start()
-    {
-        switch (iconType)//set the tool type
-        {
-            case 0:
-                tool = "Battery";
-                break;
-            case 1:
-                tool = "Light";
-                break;
-        }
-    }
 
     // Update is called once per frame
     void Update()
@@ -44,7 +30,7 @@ public class SelectorIcon : MonoBehaviour
             if (!Input.GetMouseButton(0))
             {
                 enter = true;
-                controller.GetComponent<Controller>().toolTip.GetComponent<Tooltip>().ShowTooltip(tool);
+                controller.GetComponent<Controller>().toolTip.GetComponent<Tooltip>().ShowTooltip(iconType);
             }
         }
         if ((enter && !GetComponent<Hover>().HoverTest()) || Input.GetMouseButton(0))

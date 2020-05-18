@@ -20,12 +20,13 @@ public class Controller : MonoBehaviour
 
     GridSlot grid;
     int gridSize = 25;
-    public GameObject[] board = new GameObject[25];
+    public GameObject[] board;
     bool corunning = false;
 
     // Start is called before the first frame update
     void Start()//build ui
     {
+        board = new GameObject[gridSize];
         //add all tiles to grid
         for (int i = 0; i < gridSize; i++)
         {

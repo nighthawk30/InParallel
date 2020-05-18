@@ -89,7 +89,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile: {fileID: 5025534747807024976, guid: dff81792e929aa8478a098a2dc2b3c86, type: 3}
   controller: {fileID: 0}
-  iconType: 0
+  iconType: Battery
 --- !u!114 &8645876049266807266
 MonoBehaviour:
   m_ObjectHideFlags: 0
