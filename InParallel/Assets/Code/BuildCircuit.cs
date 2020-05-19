@@ -16,6 +16,8 @@ public class BuildCircuit : MonoBehaviour
         board = GetComponent<Controller>().board;
         batteryList.Clear();
         circuitList.Clear();
+        int zinc = 0;
+        int copper = 0;
         //search for battery - does not give a shit about tiles, only looks at component and wire flow
         for (int i = 0; i < board.Length; i++)//goes through the tiles and find the batteries
         {
@@ -27,11 +29,32 @@ public class BuildCircuit : MonoBehaviour
                 {
                     errorType[1] = true;
                 }
-                if (board[i].GetComponent<GridSlot>().newTile.GetComponent<Tile>().tileType == 1)//it is a battery
+                switch (board[i].GetComponent<GridSlot>().newTile.GetComponent<Tile>().tileType)
                 {
-                    batteryList.Add(board[i].GetComponent<GridSlot>().newTile);
+                    case 1:
+                        batteryList.Add(board[i].GetComponent<GridSlot>().newTile);
+                        break;
+                    case 3:
+                        zinc++;
+                        break;
+                    case 4:
+                        copper++;
+                        break;
                 }
             }
+        }
+
+        if (zinc > 0 || copper > 0)
+        {
+            if (zinc == 1 && copper == 1)
+            {
+                GetComponent<Controller>().output = GetComponent<Setup1>().batteryIcon;
+            }
+            return;
+        }
+        else
+        {
+            GetComponent<Controller>().output = null;
         }
 
         //Add all of the unique circuit loops

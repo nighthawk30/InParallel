@@ -87,3 +87,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 0}
+  craft: {fileID: 21300000, guid: f64d83dcbc53bfb4d8be7da6091f5bea, type: 3}

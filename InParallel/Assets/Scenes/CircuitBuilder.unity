@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 135525412}
   - component: {fileID: 135525413}
   - component: {fileID: 135525414}
+  - component: {fileID: 135525415}
   m_Layer: 0
   m_Name: Controller0
   m_TagString: Untagged
@@ -166,18 +167,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef2ed697c027d4f409d93b103cfecc89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  batteryIcon: {fileID: 2893823418603648581, guid: 50a1b9e6e30c5384d845237a6fe2211d,
-    type: 3}
-  lightIcon: {fileID: 8307590232343644355, guid: 60222ca4b9df1f14d8cfb3e21211aad1,
-    type: 3}
-  gridSlot: {fileID: -5473059573783786396, guid: 93267dcaa879d76458f7256a3f113230,
-    type: 3}
-  wireToggle: {fileID: 559558903469731643, guid: deee8935c6ddd5d4ca46014d36e60aa9,
-    type: 3}
-  buildButton: {fileID: 694331949833727403, guid: c0dadfa6c13662043be4518200411601,
-    type: 3}
-  craftTile: {fileID: 2940990783724224625, guid: b4834b78428fe1f45b4029ad5478b1b3,
-    type: 3}
   toolTip: {fileID: 7677351298140910245, guid: 5b5486880ff43c943912ff1deb90ed0f, type: 3}
   currentSelection: {fileID: 0}
   wireSwitch: 0
@@ -234,6 +223,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rayHover: {fileID: 0}
+--- !u!114 &135525415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135525410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b4a13eb51f52b6428cedcaaf619e3f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridSlot: {fileID: -5473059573783786396, guid: 93267dcaa879d76458f7256a3f113230,
+    type: 3}
+  batteryIcon: {fileID: 2893823418603648581, guid: 50a1b9e6e30c5384d845237a6fe2211d,
+    type: 3}
+  zincIcon: {fileID: 8267958391933934337, guid: 776b66230452c1e43a071c1f5d6ec3f6,
+    type: 3}
+  copperIcon: {fileID: 6388920425328858318, guid: 27a650b4a2bfa2747a6a65f00a95cf90,
+    type: 3}
+  lightIcon: {fileID: 8307590232343644355, guid: 60222ca4b9df1f14d8cfb3e21211aad1,
+    type: 3}
+  wireToggle: {fileID: 559558903469731643, guid: deee8935c6ddd5d4ca46014d36e60aa9,
+    type: 3}
+  buildButton: {fileID: 694331949833727403, guid: c0dadfa6c13662043be4518200411601,
+    type: 3}
+  craftTile: {fileID: 2940990783724224625, guid: b4834b78428fe1f45b4029ad5478b1b3,
+    type: 3}
+  board: []
 --- !u!1 &223771350
 GameObject:
   m_ObjectHideFlags: 0
