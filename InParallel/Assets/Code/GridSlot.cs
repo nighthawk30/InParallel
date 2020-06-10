@@ -20,7 +20,7 @@ public class GridSlot : MonoBehaviour
         {
             if (hover)//test to switch the sprite - should only add a highlight ring to the sprite
             {
-                GetComponent<Image>().sprite = HoverTile;
+                GetComponent<HoverAnimation>().enabled = true;//GetComponent<MyScript>().enabled = true;
                 if (Input.GetMouseButtonUp(0) && controller.GetComponent<Controller>().currentSelection != null)//you dropped a component onto it
                 {
                     TilePlace();
@@ -29,11 +29,14 @@ public class GridSlot : MonoBehaviour
             }
             else
             {
-                GetComponent<Image>().sprite = BuildTile;
+                GetComponent<HoverAnimation>().enabled = false;//GetComponent<MyScript>().enabled = true;
+                GetComponent<Image>().sprite = BuildTile;//switch back to basic tile as background
             }
         }
         else //turns it into a modified selector tile to work as an inventory slot
         {
+            GetComponent<HoverAnimation>().enabled = false;//GetComponent<MyScript>().enabled = true;
+            GetComponent<Image>().sprite = BuildTile;//switch back to basic tile as background
             if (hover && Input.GetMouseButtonDown(0))//standard hover & click check
             {
                 //checks that you arent trying to place or remove a wire instead of move the object 

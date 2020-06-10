@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5506071004535721409}
   - component: {fileID: -5473059573783786396}
   - component: {fileID: -3972384352400559387}
+  - component: {fileID: 8085803438818352231}
   m_Layer: 8
   m_Name: GridSlot
   m_TagString: Untagged
@@ -87,7 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9284e5b5b707c943b6e37af220c9927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BuildTile: {fileID: 21300000, guid: f64d83dcbc53bfb4d8be7da6091f5bea, type: 3}
+  BuildTile: {fileID: 21300000, guid: 6b58e0ea59f88f74695ee8fa0cd7f69d, type: 3}
   HoverTile: {fileID: 21300000, guid: ad10e172eefa6cf4c973ce53a3deb2eb, type: 3}
   controller: {fileID: 0}
   newTile: {fileID: 0}
@@ -103,3 +104,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 676b98ddddf37204f962bc570fb94230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8085803438818352231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5506071004535721420}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 487cd7697c0fef4429dd75ba6297146b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim:
+  - {fileID: 21300000, guid: eff2bd6b97c4a7140b8523fe0db3d0e1, type: 3}
+  - {fileID: 21300000, guid: 0e93d1fcf94dfd84f9cb9be43e24b56e, type: 3}
+  - {fileID: 21300000, guid: 901c068e834138d48bf485eff918dc59, type: 3}
+  - {fileID: 21300000, guid: 13fc16d40d3ec7f48adea8a19e73aec3, type: 3}
+  - {fileID: 21300000, guid: c9fa293219d67ee4d9921f05d27573e5, type: 3}
+  - {fileID: 21300000, guid: a0ccb83eab85d264ba1e87977d5ddd8c, type: 3}
+  - {fileID: 21300000, guid: 3a366739f19787c4ebf6408b9c7e1ccd, type: 3}
+  - {fileID: 21300000, guid: 08766220ebd23dd4db1d53f49a4c7c88, type: 3}
